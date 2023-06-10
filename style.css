@@ -122,5 +122,9 @@ input{
     }
     footer{
         flex-direction: column-reverse;
+        width: 90%;
+    }
+    .divinfo>span{
+        white-space: unset;
     }
 }

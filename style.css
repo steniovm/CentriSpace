@@ -4,7 +4,11 @@
     --yellow-transp: #bdbd004d;
     --red-transp: #bd00004d;
     --blue-transp: #0000bd4d;
-  }
+}
+@font-face {
+    font-family: technology;
+    src: url(Technology-Bold-Italic.ttf.woff);
+}
 body {
     background-color: var(--neutral-green);
     display: flex;
@@ -110,4 +114,8 @@ input{
     width: min-content;
     white-space: nowrap;
     padding: 0 4px;
+}
+.unclass{
+    display: unset;
+    justify-content: center;
 }

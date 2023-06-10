@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg width="239px" height="239px" viewBox="0 0 239 239" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="150.718" cy="149.282" r="100" style="fill: rgb(154, 154, 154); stroke: rgb(154, 154, 154); fill-opacity: 0; stroke-width: 20.7528px;" transform="matrix(0.973716, 0, 0, 0.949425, -27.995483, -22.775553)"/>
-  <rect x="108.402" y="11.062" width="21.053" height="215.789" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
-  <rect x="222.009" y="37.244" width="21.053" height="216.268" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" transform="matrix(0, 1, -1, 0, 264.376709, -114.296471)"/>
-  <g transform="matrix(0.061788, 0, 0, 0.061788, 205.435211, 85.064674)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
+  <circle cx="119.389" cy="121.014" r="97" style="fill: rgb(154, 154, 154); stroke: rgb(154, 154, 154); fill-opacity: 0; stroke-width: 20.7528px;"/>
+  <rect x="107.496" y="11.062" width="24.103" height="215.789" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);"/>
+  <rect x="222.009" y="37.244" width="21.053" height="216.268" style="stroke: rgb(0, 0, 0); fill: rgb(183, 183, 183);" transform="matrix(0, 1, -1, 0, 265.376709, -114.296471)"/>
+  <g transform="matrix(0.061788, 0, 0, 0.061788, 204.435211, 85.064674)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
     <path d="m239.68 967.57 282.24-7.5072-28.849-841.44-275.44-53.334z" fill="#fff"/>
     <path d="m237.43 94.477 19.731 3.6699 1.7894 66.355-19.61-3.1715z" fill="#000030"/>
     <path d="m234.02 93.842-7.5956 4.3361 1.4426 52.143 8.0298 10.452z" fill="#000030"/>
@@ -224,7 +224,7 @@
     <path d="m223.08 968.01 16.596-0.44109-22.051-902.28-19.39 8.3928z" fill="#c8c8c8"/>
     <path d="m233.78 85.395 0.12698 4.5279 251.36 47.233-0.15881-4.3474z" fill="#000030"/>
   </g>
-  <g transform="matrix(-0.061788, 0, 0, -0.061788, 34.047703, 150.542191)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
+  <g transform="matrix(-0.061788, 0, 0, -0.061788, 35.047703, 150.542191)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
     <path d="m239.68 967.57 282.24-7.5072-28.849-841.44-275.44-53.334z" fill="#fff"/>
     <path d="m237.43 94.477 19.731 3.6699 1.7894 66.355-19.61-3.1715z" fill="#000030"/>
     <path d="m234.02 93.842-7.5956 4.3361 1.4426 52.143 8.0298 10.452z" fill="#000030"/>
@@ -445,7 +445,7 @@
     <path d="m223.08 968.01 16.596-0.44109-22.051-902.28-19.39 8.3928z" fill="#c8c8c8"/>
     <path d="m233.78 85.395 0.12698 4.5279 251.36 47.233-0.15881-4.3474z" fill="#000030"/>
   </g>
-  <g transform="matrix(0, 0.061788, -0.061788, 0, 150.063705, 204.387817)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
+  <g transform="matrix(0, 0.061788, -0.061788, 0, 151.063705, 204.387817)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
     <path d="m239.68 967.57 282.24-7.5072-28.849-841.44-275.44-53.334z" fill="#fff"/>
     <path d="m237.43 94.477 19.731 3.6699 1.7894 66.355-19.61-3.1715z" fill="#000030"/>
     <path d="m234.02 93.842-7.5956 4.3361 1.4426 52.143 8.0298 10.452z" fill="#000030"/>
@@ -666,7 +666,7 @@
     <path d="m223.08 968.01 16.596-0.44109-22.051-902.28-19.39 8.3928z" fill="#c8c8c8"/>
     <path d="m233.78 85.395 0.12698 4.5279 251.36 47.233-0.15881-4.3474z" fill="#000030"/>
   </g>
-  <g transform="matrix(0, -0.061788, 0.061788, 0, 85.936317, 34.483089)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
+  <g transform="matrix(0, -0.061788, 0.061788, 0, 86.936317, 35.483089)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5615">
     <path d="m239.68 967.57 282.24-7.5072-28.849-841.44-275.44-53.334z" fill="#fff"/>
     <path d="m237.43 94.477 19.731 3.6699 1.7894 66.355-19.61-3.1715z" fill="#000030"/>
     <path d="m234.02 93.842-7.5956 4.3361 1.4426 52.143 8.0298 10.452z" fill="#000030"/>

@@ -1,5 +1,7 @@
 const canvasstation = document.getElementById('canvasstation');
 const ctxcanva = canvasstation.getContext("2d");
+const canvaspeso = document.getElementById('canvaspeso');
+const ctxcanvap = canvaspeso.getContext("2d");
 const startcond = document.getElementById('startcond');
 const pausecond = document.getElementById('pausecond');
 const inraio = document.getElementById('inraio');
@@ -8,19 +10,24 @@ const rpmtohz = document.getElementById('rpmtohz');
 const output = document.getElementById('output');
 const imgstation = document.createElement('img');
 const imgstationc = document.createElement('img');
+const imgpeso = document.createElement('img');
 const maxWidth = canvasstation.width;
 const maxHeight = canvasstation.height;
+const pWidth = canvaspeso.width;
+const pHeight = canvaspeso.height;
 const gterra = 9.80665;
 const numberstarts = 200;
 const stars = [];
-let dtime = 100;
+const dtime = 30;
 imgstation.src = './spacestation.svg';
 imgstationc.src = './spacestationcenter.svg';
+imgpeso.src = './peso.svg';
 let raio = parseInt(inraio.value);
 let velocidadeAngular = parseFloat(inrot.value);
 let aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
 let gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
 let ang = 0;
+let dang = 1;
 let rotation = 0;
 //estruturas das estrelas
 function star(){
@@ -52,16 +59,20 @@ function plotStation(ang=0){
     ctxcanva.fillStyle = "#000";
     ctxcanva.fillRect(0,0,maxWidth,maxHeight);
     plotstars();
+    ctxcanvap.fillStyle = "#ddd";
+    ctxcanvap.fillRect(0,0,pWidth,pHeight);
+    ctxcanvap.drawImage(imgpeso,0,0);
     ctxcanva.translate(cx,cy);
     ctxcanva.rotate(ang);
     ctxcanva.translate(-cx,-cy);
     ctxcanva.drawImage(imgstation,5,5,maxHeight-10, maxHeight-10);
+    ctxcanva.drawImage(canvaspeso,(maxWidth/2)-(pWidth/4),(maxHeight*(0.7)),pWidth/2,pHeight/2);
     ctxcanva.translate(cx,cy);
     ctxcanva.rotate(-ang);
     ctxcanva.translate(-cx,-cy);
     ctxcanva.drawImage(imgstationc,5,5,maxHeight-10, maxHeight-10);
 }
-setTimeout(plotStation,100);
+setTimeout(plotStation,200);
 
 function calcularGravidadeArtificial(raio, velocidadeAngular) {
     // Converter a velocidade angular de RPM (rotações por minuto) para radianos por segundo
@@ -69,7 +80,7 @@ function calcularGravidadeArtificial(raio, velocidadeAngular) {
     // Calcular a aceleração centrípeta
     aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
     // Calcular a gravidade artificial
-    var gravidadeArtificial = aceleracaoCentripeta / gterra;
+    let gravidadeArtificial = aceleracaoCentripeta / gterra;
     return gravidadeArtificial;
 }
 
@@ -83,15 +94,14 @@ inrot.addEventListener('change',()=>{
     gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
     rpmtohz.innerHTML="= "+(velocidadeAngular/60).toFixed(2)+" Hz";
     output.innerHTML = "a = "+aceleracaoCentripeta.toFixed(2)+" m/s² = "+gravidade.toFixed(2)+" g";
-    dtime = 1/(velocidadeAngular*6);
+    dang = 0.18*velocidadeAngular;//angulo a cada 30 milissegundos
 });
 startcond.addEventListener('click',()=>{
-    dtime = 0.06/velocidadeAngular;
+    dang = 0.18*velocidadeAngular;//angulo a cada 30 milissegundos
     clearInterval(rotation);
     rotation = setInterval(()=>{
-        ang = (ang+1)%360;
+        ang = (ang+dang)%360;
         plotStation(ang);
-        console.log(dtime);
     },dtime);
 });
 pausecond.addEventListener('click',()=>{

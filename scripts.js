@@ -9,6 +9,7 @@ const inrot = document.getElementById('inrot');
 const inmass = document.getElementById('inmass');
 const rpmtohz = document.getElementById('rpmtohz');
 const output = document.getElementById('output');
+const outputv = document.getElementById('outputv');
 const imgstation = document.createElement('img');
 const imgstationc = document.createElement('img');
 const imgpeso = document.createElement('img');
@@ -25,6 +26,7 @@ imgstationc.src = './spacestationcenter.svg';
 imgpeso.src = './peso.svg';
 let raio = parseInt(inraio.value);
 let velocidadeAngular = parseFloat(inrot.value);
+let velocidade = 5;
 let massa = parseFloat(inmass.value);
 let aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
 let gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
@@ -98,14 +100,18 @@ function calcularGravidadeArtificial(raio, velocidadeAngular) {
 inraio.addEventListener('change',()=>{
     raio = parseInt(inraio.value);
     gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
+    velocidade = (velocidadeAngular*raio)/60;
     output.innerHTML = "a = "+aceleracaoCentripeta.toFixed(2)+" m/s² = "+gravidade.toFixed(2)+" g";
+    outputv.innerHTML = "v = "+velocidade.toFixed(2)+" m/s = "+(velocidade*3.6).toFixed(2)+" km/h";
     plotpeso();
 });
 inrot.addEventListener('change',()=>{
     velocidadeAngular = parseFloat(inrot.value);
     gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
+    velocidade = (velocidadeAngular*raio)/60;
     rpmtohz.innerHTML="= "+(velocidadeAngular/60).toFixed(2)+" Hz";
     output.innerHTML = "a = "+aceleracaoCentripeta.toFixed(2)+" m/s² = "+gravidade.toFixed(2)+" g";
+    outputv.innerHTML = "v = "+velocidade.toFixed(2)+" m/s = "+(velocidade*3.6).toFixed(2)+" km/h";
     plotpeso();
     dang = 0.18*velocidadeAngular;//angulo a cada 30 milissegundos
     

@@ -61,7 +61,7 @@ function plotpeso(){
     ctxcanvap.fillStyle = "#eee";
     ctxcanvap.font = "15px Arial";//configura fonte de proximo texto no contexto
     ctxcanvap.textAlign = "center";
-    ctxcanvap.fillText(massa.toFixed(1)+" Kg",35,70);//escreve no contexto (texto, esquerdatexto, embaixotexto)
+    ctxcanvap.fillText(massa.toFixed(1)+" kg",35,70);//escreve no contexto (texto, esquerdatexto, embaixotexto)
     ctxcanvap.fillStyle = "#222";
     ctxcanvap.fillText((massa*aceleracaoCentripeta).toFixed(1)+" N",35,140);//escreve no contexto (texto, esquerdatexto, embaixotexto)
 }
@@ -89,7 +89,7 @@ function calcularGravidadeArtificial(raio, velocidadeAngular) {
     // Converter a velocidade angular de RPM (rotações por minuto) para radianos por segundo
     velocidadeAngular = (velocidadeAngular * 2 * Math.PI) / 60;
     // Calcular a aceleração centrípeta
-    aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) / raio;
+    aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
     // Calcular a gravidade artificial
     let gravidadeArtificial = aceleracaoCentripeta / gterra;
     return gravidadeArtificial;

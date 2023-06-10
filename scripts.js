@@ -52,6 +52,15 @@ function plotstars(){
         ctxcanva.fill();
     });
 }
+function plotpeso(){
+    ctxcanvap.fillStyle = "#ddd";
+    ctxcanvap.fillRect(0,0,pWidth,pHeight);
+    ctxcanvap.drawImage(imgpeso,0,0);
+    ctxcanvap.fillStyle = "#222";
+    ctxcanvap.font = "20px Arial";//configura fonte de proximo texto no contexto
+    ctxcanvap.textAlign = "center";
+    ctxcanvap.fillText(gravidade.toFixed(1),35,140);//escreve no contexto (texto, esquerdatexto, embaixotexto)
+}
 function plotStation(ang=0){
     const cx = (maxWidth/2);
     const cy = (maxHeight/2);
@@ -59,9 +68,7 @@ function plotStation(ang=0){
     ctxcanva.fillStyle = "#000";
     ctxcanva.fillRect(0,0,maxWidth,maxHeight);
     plotstars();
-    ctxcanvap.fillStyle = "#ddd";
-    ctxcanvap.fillRect(0,0,pWidth,pHeight);
-    ctxcanvap.drawImage(imgpeso,0,0);
+    plotpeso();
     ctxcanva.translate(cx,cy);
     ctxcanva.rotate(ang);
     ctxcanva.translate(-cx,-cy);
@@ -78,7 +85,7 @@ function calcularGravidadeArtificial(raio, velocidadeAngular) {
     // Converter a velocidade angular de RPM (rotações por minuto) para radianos por segundo
     velocidadeAngular = (velocidadeAngular * 2 * Math.PI) / 60;
     // Calcular a aceleração centrípeta
-    aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
+    aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) / raio;
     // Calcular a gravidade artificial
     let gravidadeArtificial = aceleracaoCentripeta / gterra;
     return gravidadeArtificial;

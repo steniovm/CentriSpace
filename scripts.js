@@ -6,6 +6,7 @@ const startcond = document.getElementById('startcond');
 const pausecond = document.getElementById('pausecond');
 const inraio = document.getElementById('inraio');
 const inrot = document.getElementById('inrot');
+const inmass = document.getElementById('inmass');
 const rpmtohz = document.getElementById('rpmtohz');
 const output = document.getElementById('output');
 const imgstation = document.createElement('img');
@@ -24,6 +25,7 @@ imgstationc.src = './spacestationcenter.svg';
 imgpeso.src = './peso.svg';
 let raio = parseInt(inraio.value);
 let velocidadeAngular = parseFloat(inrot.value);
+let massa = parseFloat(inmass.value);
 let aceleracaoCentripeta = Math.pow(velocidadeAngular, 2) * raio;
 let gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
 let ang = 0;
@@ -56,10 +58,12 @@ function plotpeso(){
     ctxcanvap.fillStyle = "#ddd";
     ctxcanvap.fillRect(0,0,pWidth,pHeight);
     ctxcanvap.drawImage(imgpeso,0,0);
-    ctxcanvap.fillStyle = "#222";
-    ctxcanvap.font = "20px Arial";//configura fonte de proximo texto no contexto
+    ctxcanvap.fillStyle = "#eee";
+    ctxcanvap.font = "15px Arial";//configura fonte de proximo texto no contexto
     ctxcanvap.textAlign = "center";
-    ctxcanvap.fillText(gravidade.toFixed(1),35,140);//escreve no contexto (texto, esquerdatexto, embaixotexto)
+    ctxcanvap.fillText(massa.toFixed(1)+" Kg",35,70);//escreve no contexto (texto, esquerdatexto, embaixotexto)
+    ctxcanvap.fillStyle = "#222";
+    ctxcanvap.fillText((massa*aceleracaoCentripeta).toFixed(1)+" N",35,140);//escreve no contexto (texto, esquerdatexto, embaixotexto)
 }
 function plotStation(ang=0){
     const cx = (maxWidth/2);
@@ -95,13 +99,20 @@ inraio.addEventListener('change',()=>{
     raio = parseInt(inraio.value);
     gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
     output.innerHTML = "a = "+aceleracaoCentripeta.toFixed(2)+" m/s² = "+gravidade.toFixed(2)+" g";
+    plotpeso();
 });
 inrot.addEventListener('change',()=>{
     velocidadeAngular = parseFloat(inrot.value);
     gravidade = calcularGravidadeArtificial(raio, velocidadeAngular);
     rpmtohz.innerHTML="= "+(velocidadeAngular/60).toFixed(2)+" Hz";
     output.innerHTML = "a = "+aceleracaoCentripeta.toFixed(2)+" m/s² = "+gravidade.toFixed(2)+" g";
+    plotpeso();
     dang = 0.18*velocidadeAngular;//angulo a cada 30 milissegundos
+    
+});
+inmass.addEventListener('change',()=>{
+    massa = parseFloat(inmass.value);
+    plotpeso();
 });
 startcond.addEventListener('click',()=>{
     dang = 0.18*velocidadeAngular;//angulo a cada 30 milissegundos
